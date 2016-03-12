@@ -1,0 +1,30 @@
+Spring框架是一个开源的企业应用开发框架，作为一个轻量级的解决方案，其包含20多个不同的模块。本书主要关注Core和Bean，以及Spring MVC模块。Spring MVC是Spring的一个子框架，也是本书的主题。
+本章主要介绍Core和Bean两个模块，以及它们如何提供依赖注入解决方案。为方便初学者，本书会深入讨论依赖注入概念的细节。后续介绍开发MVC应用的章节将会使用到本章介绍的技能。
+在过去数年间，依赖注入技术作为代码可测试性的一个解决方案已经被广泛应用。实际上，Spring、谷歌Guice等伟大框架都采用了依赖注入技术。那么，什么是依赖注入技术？
+很多人在使用中并不区分依赖注入和控制反转(IoC)，尽管Martin Fowler在其文章中已分析了两者的不同。
+http://martinfowler.com/articles/injection.html
+简单来说，依赖注入的情况如下。
+有两个组件A和B，A依赖于B。假定A是一个类，且A有一个方法importantMethod使用了B，如下：
+public class A{
+  public void importantMethod(){
+    B b = ... //get an instance of B
+    b.usefulMethod();
+    ...
+  }
+  ...
+}
+要使用B，类A必须先获得组件B的实例引用。若B是一个具体类，则可通过new关键直接创建组件B的实例。但是，如果B是接口，且有多个实现，则问题就变得复杂了。我们固然可以任意选择接口B的一个实现类，但这也意味着A的可重用性大大降低了，因为无法采用B的其他实现。
+依赖注入是这样处理此类情景的：接管对象的创建工作，并将该对象的引用注入需要该对象的组件。以上述例子为例，依赖注入框架会分别创建对象A和对象B，将对象B注入到对象A中。
+为了能让框架进行依赖注入，程序员需要编写特定的set方法或者构建方法。例如，为了能将B注入到A中，类A会被修改成如下形式：
+public class A {
+  private B b;
+  public void importantMethod(){
+    //no need to worry about creating B anymore
+    //B b = ...//get an instance of B 
+    ...
+  }
+  public void setB(B b){
+    this.b = b;
+  }
+}
+修改后的类A
