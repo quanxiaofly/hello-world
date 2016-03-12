@@ -1,0 +1,17 @@
+三大框架分别是：Struts+Hibernate+Spring
+Java三大框架主要用来做Web应用。
+Struts主要负责表示层的显示
+Spring利用它的IOC和AOP来处理控制业务(负责对数据库的操作)
+Hibernate主要是数据持久化到数据库
+再用jsp的servlet做网页开发的时候有个web.xml的映射文件，里面有一个mapping的标签就是用来做文件映射的。当你在浏览器输入URL得知的时候，文件就会根据你写的名称对应到一个JAVA文件，根据java文件里编写的内容显示在浏览器上，就是一个网页。
+
+一.Struts框架：struts是开源软件。使用Struts的目的是为了帮助我们减少在运用MVC设计模型来开发Web应用的时间。如果我们相混合使用Servlets和JSP的优点来建立可扩展的应用，struts是一个不错的选择。
+1.流程：服务器启动后，根据web.xml加载ActionServlet读取struts-config.xml文件内容到内存。
+2.架构：Struts对Model，View和Controller都提供了对应的组件。ActionServlet，这个类是Struts的核心控制器，负责拦截来自用户的请求。
+ Model部分：由JavaBean组成，ActionForm用于封装用户的请求参数，封装成ActionForm对象，该对象被ActionServlet转发给Action，Action根据ActionFrom里面的请求参数处理用户的请求。JavaBean则封装了底层的业务逻辑，包括数据库访问等。
+ View部分：该部分采用JSP实现。Struts提供了丰富的标签库，通过标签库可以减少脚本的使用，自定义的标签库可以实现与Model的有效交互，并增加了显示功能。对应上图中的JSP布冯。
+ Controller组件：Controller组件有两个部分组成--系统核心控制器，业务逻辑控制器。
+ 系统核心控制器，对应上图的ActionServlet。该控制器负责拦截所有的HTTP的请求，然后根据用户请求决定是否要转给业务逻辑控制器。业务逻辑控制器，负责处理用户请求，本身不具备处理能力，而是调用Model来完成处理。对应Action部分。
+ 
+二.Spring框架
+  Spring是一个解决了许多在J2EE开发中常见的问题的强大框架。Spring提供了管理业务对象的一致方法并且鼓励了注入对接口编程而不是对类编程的好习惯。Spring的架构基础是基于使用JavaBean属性的Inversion of Control容器。然而Spring在使用IOC容器作为构建完关注
