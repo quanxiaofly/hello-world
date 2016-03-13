@@ -1,0 +1,5 @@
+    MyBatis的前身就是iBatis。是一个数据持久化层（ORM）框架。iBATIS一词来源于“internet”和“abatis”的组合，是一个基于Java的持久化层框架。iBATIS提供的持久化曾框架包括SAL Maps和Data Access Objects（DAO），同时还提供了一个利用这个框架开发的JPetStore实例。
+    MyBatis是一个可以自定义SQL、存储过程和高级映射的持久层框架。MyBatis摒除了大部分的JDBC代码、手工设置参数和结果集重获。
+    MyBatis只使用简单的XML和注解来配置和映射基本数据类型、Map接口和POJO到数据库记录。相对Hibernate和Apache OJB等“一站式”ORM解决方案而言，MyBatis是一种“半自动化”的ORM实现。
+    需要使用的Jar包：MyBatis-3.0.2.jar（MyBatis核心包）。MyBatis-spring-1.0.0.jar（与Spring结合包）。
+    
